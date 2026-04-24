@@ -128,6 +128,3 @@ Rationale for the key design choices:
   vectorised O(N²) distance matrix is simpler and faster than a KDTree, and
   handles the near-orthorhombic lattice without the `boxsize` approximation.
 
-## License
-
-MIT. See `LICENSE` (TODO).
