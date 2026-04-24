@@ -35,7 +35,7 @@ different space group, `F43M_OPS` in `lpsc_sites/symmetry.py` and the
 ## Installation
 
 ```bash
-git clone https://github.com/TODO/lpsc-sites.git
+git clone https://github.com/Fra-me/LPSC_sites.git
 cd lpsc-sites
 pip install -e '.[dev]'
 ```
