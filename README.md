@@ -39,9 +39,9 @@ different space group, `F43M_OPS` in `lpsc_sites/symmetry.py` and the
 ```bash
 git clone https://github.com/Fra-me/LPSC_sites.git
 cd LPSC_sites
-python3 -m venv .venv
-source .venv/bin/activate    # On Windows: .venv\Scripts\activate
-pip install -e '.[dev]'
+python3 -m venv .venv               # Windows: python
+source .venv/bin/activate           # Windows: .venv\Scripts\activate
+pip install -e ".[dev]"
 ```
 
 Python 3.10+ is required (uses `|`-style type unions and `slots=True`
