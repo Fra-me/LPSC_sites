@@ -8,8 +8,7 @@ version         = "0.1.0"
 description     = "Anchor-based Li site extraction from AIMD density volumes for cubic argyrodite Li6PS5Cl (F-43m)."
 readme          = "README.md"
 requires-python = ">=3.10"
-license         = { text = "MIT" }
-authors         = [{ name = "Francesco Modica", email = "TODO@example.com" }]
+authors         = [{ name = "Francesco Modica" }]
 keywords        = [
     "argyrodite", "solid-state electrolyte", "AIMD",
     "lithium", "Wyckoff", "site extraction", "LPSC",
@@ -39,7 +38,7 @@ dev = [
 ]
 
 [project.urls]
-Repository = "https://github.com/TODO/lpsc-sites"
+Repository = "https://github.com/Fra-me/LPSC_sites"
 
 [tool.setuptools.packages.find]
 include = ["lpsc_sites*"]

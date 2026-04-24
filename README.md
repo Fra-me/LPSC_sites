@@ -1,4 +1,4 @@
-# lpsc-sites
+# LPSC-sites
 
 Anchor-based Li site extraction from AIMD density volumes for cubic argyrodite
 Li₆PS₅Cl (F-43m).
@@ -19,7 +19,9 @@ This is research code written around a specific material and method. The
 implementation assumes:
 
 - **Space group F-43m** (argyrodite family, cubic).
-- **Wyckoff occupancy**: P at 4b, S/O at 4d, Cl at 4a, Li at 48h / 48h′ / 16e.
+- **Wyckoff occupancy**: P at 4b; S at 16e (tetrahedral, bonded to P); 
+  4a and 4d host the disordered halogen/chalcogen (Cl nominally at 4a, 
+  S/O nominally at 4d); Li at 48h / 48h′ / 16e.
 - **Disorder mode**: pairwise 4a ↔ 4d swaps between halogen and chalcogen.
 - **Reference CIF labels**: `P1` (phosphorus), `S3` (4d sulfur), `Cl4` (4a
   chlorine), `48h` / `48h2` / `16e` (lithium). These are the labels used in
@@ -36,7 +38,9 @@ different space group, `F43M_OPS` in `lpsc_sites/symmetry.py` and the
 
 ```bash
 git clone https://github.com/Fra-me/LPSC_sites.git
-cd lpsc-sites
+cd LPSC_sites
+python3 -m venv .venv
+source .venv/bin/activate    # On Windows: .venv\Scripts\activate
 pip install -e '.[dev]'
 ```
 
@@ -45,16 +49,16 @@ dataclasses).
 
 ## Usage
 
-The intended entry point is the driver notebook:
+The intended entry point is the driver notebook at
+`notebooks/extract_sites.ipynb`. Open it in VSCode or JupyterLab and select
+the `.venv` kernel created during installation, then run the cells top to
+bottom.
 
-```bash
-jupyter notebook notebooks/extract_sites.ipynb
-```
-
-Update the paths at the top of the notebook (`VASPRUN`, `CACHE`,
-`REFERENCE_CIF`, `OUTPUT_CIF`) to point at your data, then run top to bottom.
-Each cell either prints a short summary or produces a diagnostic plot; the
-final cells export the labelled CIF plus a JSON metadata sidecar.
+A reduced gemdat trajectory cache is provided in `data/reduced.cache` so
+that the notebook runs end-to-end without the original VASP `vasprun.xml`.
+The reference CIF (`data/LPSC_all.cif`) is also included. Each cell prints
+a short summary or produces a diagnostic plot; the final cells export the
+labelled CIF and a JSON metadata sidecar to `data/`.
 
 The same workflow can be driven from a plain Python script by importing
 directly from the package — every pipeline step is a public function or
